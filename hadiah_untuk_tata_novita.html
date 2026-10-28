@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f6">
+<meta name="description" content="Kejutan kecil penuh cinta untuk Novita, Tata🖤">
+<title>Untuk Tata 🖤 — dari hati</title>
+<style>
+:root{--pink:#f7a8c4;--deep:#b83d70;--pale:#fff0f6;--cream:#fffafc;--ink:#573847;--line:#f5ccdc}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 5%,#ffe0ec 0,transparent 36%),radial-gradient(circle at 90% 80%,#ffe9f1 0,transparent 35%),linear-gradient(135deg,#fff7fa,#fffafd);min-height:100vh}
+button,a{font:inherit}button{cursor:pointer}
+.screen{display:none;min-height:100vh;padding:24px 15px;align-items:center;justify-content:center}.screen.active{display:flex}
+.panel{width:min(100%,440px);text-align:center;background:#ffffffdf;border:1px solid #fff;border-radius:28px;padding:clamp(22px,6vw,32px) clamp(16px,5vw,25px);box-shadow:0 18px 55px #b83d7015}
+.eyebrow{font-size:.73rem;letter-spacing:.17em;text-transform:uppercase;color:var(--deep)}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(2rem,8vw,3rem);line-height:1.1;margin:12px 0}
+p{line-height:1.7;margin:12px 0}.muted{color:#977887;font-size:.9rem}
+.avatar{width:102px;height:102px;border-radius:50%;object-fit:cover;background:#ffe1eb;border:5px solid white;box-shadow:0 5px 18px #b83d7020;margin:12px auto;display:none}
+.bigflower{font-size:clamp(3.5rem,17vw,5rem);line-height:1.25;margin:10px}
+.pin-display{min-height:38px;letter-spacing:.55em;font-size:1.3rem;color:var(--deep);margin:15px 0}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:270px;margin:0 auto}
+.key{border:0;border-radius:15px;background:#fff0f5;color:var(--deep);font-size:1.1rem;padding:13px;box-shadow:0 3px 0 #f2c6d7;touch-action:manipulation}
+.key:active{transform:translateY(2px);box-shadow:none}
+.primary,.secondary{display:inline-block;text-decoration:none;border-radius:999px;padding:12px 18px;margin:5px 3px;touch-action:manipulation}
+.primary{border:0;color:white;background:linear-gradient(135deg,#e77ba6,#bd4e7d);box-shadow:0 7px 18px #bd4e7d2b}
+.secondary{border:1px solid #f0bfd1;color:var(--deep);background:#fff8fb}
+.gift-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:24px 0}
+.gift{background:#fff2f7;border:1px solid #f8d5e2;border-radius:17px;padding:15px 5px;min-height:122px;color:var(--deep);overflow-wrap:anywhere}
+.gift .emoji{display:block;font-size:2.2rem;margin-bottom:8px}.gift small{font-size:.76rem}
+.note{background:#fff9fb;border:1px dashed #edb5cb;border-radius:18px;padding:18px;text-align:left;white-space:pre-wrap;line-height:1.8}
+.heart{color:#df6797;animation:pulse 1.25s infinite;display:inline-block}
+.footer{font-size:.78rem;color:#ad8798;margin-top:20px}
+@keyframes pulse{50%{transform:scale(1.18)}}
+@media(max-width:360px){.panel{padding:22px 13px}.gift-grid{gap:5px}.gift{padding:12px 3px}.gift .emoji{font-size:1.9rem}}
+@media(prefers-reduced-motion:reduce){.heart{animation:none}}
+</style>
+</head>
+<body>
+<section class="screen active" id="lock">
+ <main class="panel">
+  <div class="eyebrow">a little surprise, made with love</div>
+  <img class="avatar" id="coverPhoto" alt="Foto kenangan">
+  <div class="bigflower">💐</div>
+  <h1>Hai, Tata🖤</h1>
+  <p>Novita, aku menyiapkan kejutan kecil untukmu. Sederhana, tapi dibuat dengan sepenuh hati.</p>
+  <p class="muted">Masukkan PIN rahasia untuk membuka hadiah ♡</p>
+  <div class="pin-display" id="pinDisplay" aria-live="polite">○ ○ ○ ○</div>
+  <div class="keypad" id="keypad">
+   <button class="key" data-key="1" aria-label="1">1</button><button class="key" data-key="2" aria-label="2">2</button><button class="key" data-key="3" aria-label="3">3</button>
+   <button class="key" data-key="4" aria-label="4">4</button><button class="key" data-key="5" aria-label="5">5</button><button class="key" data-key="6" aria-label="6">6</button>
+   <button class="key" data-key="7" aria-label="7">7</button><button class="key" data-key="8" aria-label="8">8</button><button class="key" data-key="9" aria-label="9">9</button>
+   <button class="key" data-key="clear" aria-label="Hapus angka">⌫</button><button class="key" data-key="0" aria-label="0">0</button><button class="key" data-key="enter" aria-label="Buka hadiah">♡</button>
+  </div>
+  <p class="muted" id="pinMessage">Empat angka spesial kita…</p>
+  <div class="footer">dibuat khusus untukmu <span class="heart">♥</span></div>
+ </main>
+</section>
+
+<section class="screen" id="home">
+ <main class="panel">
+  <div class="eyebrow">for Novita, my favorite person</div>
+  <h1>Untuk Tata🖤 <span class="heart">♡</span></h1>
+  <p>Ada tiga hadiah kecil untukmu. Buka semuanya, ya.</p>
+  <div class="gift-grid">
+   <button class="gift" onclick="go('flowers')"><span class="emoji">💐</span><strong>Bunga</strong><br><small>untuk Tata</small></button>
+   <button class="gift" onclick="go('music')"><span class="emoji">🎧</span><strong>Lagu</strong><br><small>lagu kita</small></button>
+   <button class="gift" onclick="go('letter')"><span class="emoji">💌</span><strong>Surat</strong><br><small>dari hatiku</small></button>
+  </div>
+  <p class="muted">Semoga kejutan kecil ini bisa bikin kamu tersenyum ✨</p>
+  <button class="secondary" onclick="go('lock')">Kunci kembali</button>
+ </main>
+</section>
+
+<section class="screen" id="flowers">
+ <main class="panel">
+  <div class="eyebrow">gift 01 · flowers for you</div>
+  <div class="bigflower">🌷🌷🌷</div>
+  <h1>Bunga untuk Tata</h1>
+  <p>Kalau aku bisa, aku ingin memberimu bunga secara langsung dan melihat senyummu saat menerimanya. Untuk sekarang, terimalah bunga kecil ini sebagai pengingat bahwa kamu istimewa bagiku.</p>
+  <p style="font-size:1.8rem">🌷 💗 🌷</p>
+  <button class="primary" onclick="go('home')">Kembali ke hadiah</button>
+ </main>
+</section>
+
+<section class="screen" id="music">
+ <main class="panel">
+  <div class="eyebrow">gift 02 · a song for us</div>
+  <div class="bigflower">🎶</div>
+  <h1>Lagu untuk Tata</h1>
+  <p>Ada lagu yang ingin kubagikan denganmu. Semoga setiap kali mendengarnya, kamu ingat bahwa ada seseorang yang sedang mengirimkan rasa sayangnya untukmu. 🖤</p>
+  <a class="primary" id="songLink" href="https://open.spotify.com/track/6qL5UWxRSQYml9O99ozoLv?si=2MIIv457Ty2C9Ka0HzXoTw&amp;utm_source=copy-link" target="_blank" rel="noopener">Putar lagu di Spotify ♫</a>
+  <p class="muted">Tautan ini akan membuka Spotify. Pemutaran mengikuti ketersediaan akun dan aplikasi Spotify-mu.</p>
+  <button class="secondary" onclick="go('home')">Kembali ke hadiah</button>
+ </main>
+</section>
+
+<section class="screen" id="letter">
+ <main class="panel">
+  <div class="eyebrow">gift 03 · a letter from my heart</div>
+  <h1>Untuk Novita, Tata🖤</h1>
+  <div class="note" id="loveLetter">Tata🖤,
+
+Terima kasih sudah hadir dan menjadi bagian indah dalam hidupku. Ada banyak hal sederhana yang terasa lebih berarti sejak ada kamu. Bahkan ketika aku tidak selalu pandai merangkai kata, aku ingin kamu tahu bahwa kehadiranmu punya tempat istimewa di hatiku.
+
+Aku tidak menjanjikan bahwa setiap hari akan selalu sempurna. Tapi aku ingin terus belajar memahami kamu, menghargai perasaanmu, mendengarkan ceritamu, dan membuatmu merasa disayangi—bukan hanya lewat kata-kata, tetapi juga lewat tindakan kecil setiap hari.
+
+Semoga kita bisa terus berbagi tawa, saling menguatkan saat lelah, dan mengumpulkan banyak kenangan manis bersama. Kalau suatu hari kamu merasa kurang percaya diri atau dunia terasa berat, semoga kamu ingat bahwa kamu berharga dan pantas mendapatkan kasih sayang yang tulus.
+
+Terima kasih sudah menjadi Tata. Aku senang bisa mengenalmu.
+
+Dengan penuh sayang,
+aku ♡</div>
+  <p><span class="heart">♥</span> Kamu istimewa, Tata.</p>
+  <button class="primary" onclick="go('home')">Kembali ke hadiah</button>
+ </main>
+</section>
+
+<script>
+/* PENGATURAN PRIBADI — silakan ubah bila mau */
+const CONFIG = {
+  pin: "0721",
+  songUrl: "https://open.spotify.com/track/6qL5UWxRSQYml9O99ozoLv?si=2MIIv457Ty2C9Ka0HzXoTw&utm_source=copy-link"
+};
+let entered = "";
+const display = document.getElementById("pinDisplay");
+function renderPin(){ display.textContent = entered.length ? (("● ").repeat(entered.length)).trim() : "○ ○ ○ ○"; }
+function go(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}
+function enterPin(){
+ if(entered===CONFIG.pin){entered="";renderPin();go("home");document.getElementById("pinMessage").textContent="Empat angka spesial kita…";}
+ else{document.getElementById("pinMessage").textContent="Belum tepat, coba sekali lagi ya ♡";entered="";renderPin();}
+}
+document.getElementById("keypad").addEventListener("click",e=>{
+ const key=e.target.closest("button")?.dataset.key;if(!key)return;
+ if(key==="clear"){entered=entered.slice(0,-1);renderPin();return;}
+ if(key==="enter"){enterPin();return;}
+ if(entered.length<4){entered+=key;renderPin();if(entered.length===4)setTimeout(enterPin,250);}
+});
+document.getElementById("songLink").href=CONFIG.songUrl;
+</script>
+</body>
+</html>
